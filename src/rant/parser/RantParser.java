@@ -31,7 +31,6 @@ public class RantParser {
 	
 	public RantParser(Model parseModel){
 		model = parseModel;
-		System.out.println(model);
 		Alphabet dict = model.getList().getLabelAlphabet();
 		index = new int[titles.length];
 		for (int i = 0; i < titles.length; i++) {
