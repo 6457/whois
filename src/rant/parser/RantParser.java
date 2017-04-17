@@ -31,6 +31,7 @@ public class RantParser {
 	
 	public RantParser(Model parseModel){
 		model = parseModel;
+		System.out.println(model);
 		Alphabet dict = model.getList().getLabelAlphabet();
 		index = new int[titles.length];
 		for (int i = 0; i < titles.length; i++) {
@@ -63,8 +64,8 @@ public class RantParser {
 		return rant;
 	}
 	
-	public LabelSequence parse(String thickWHOIS) {
+	public HashMap<String, String> getFields(String thickWHOIS) {
 		Instance inst = new Instance(ThickFactory.chunk(thickWHOIS));
-		return parse(inst);
+		return extract(inst);
 	}
 }

@@ -16,8 +16,15 @@ public class ThickParser {
 		return model.getLabel(inst);
 	}
 	
-	public LabelSequence parse(String thickWHOIS) {
+	public String getRant(String thickWHOIS) {
 		Instance inst = new Instance(ThickFactory.chunk(thickWHOIS));
-		return parse(inst);
+		int[] labels = parse(inst).getLabels();
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < labels.length; i++) {
+			if (labels[i] == 3) {
+				sb.append(inst.getText(i) + "\n");
+			}
+		}
+		return sb.toString();
 	}
 }
